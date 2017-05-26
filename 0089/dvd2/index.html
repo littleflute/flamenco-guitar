@@ -1,0 +1,54 @@
+<!DOCTYPE html>	  
+<html>  
+<body> 
+ECHO is off.
+<br> 
+<div id="DivCurTime"></div> 
+<br> 
+<button onclick="getCurTime()" type="button">Get current time position</button>  
+<button onclick="setCurTime(0)" type="button">00</button><br>   
+<button onclick="moveMS(-0.05)" type="button">Time-50ms</button>  
+<button onclick="moveMS(-0.01)" type="button">-10ms</button>  
+<button onclick="moveMS(0.01)" type="button">+10ms</button>  
+<button onclick="moveMS(0.05)" type="button">+50ms</button>  
+<button onclick="setCurTime(5)" type="button">Set time position to 5 seconds</button><br>   
+<button onclick="play('VTS_01_0.mp4')">1:VTS_01_0.mp4</button> 
+<button onclick="play('VTS_01_1 00_00_00-00_08_10.mp4')">2:VTS_01_1 00_00_00-00_08_10.mp4</button> 
+<button onclick="play('VTS_01_1 00_08_00-00_16_10.mp4')">3:VTS_01_1 00_08_00-00_16_10.mp4</button> 
+<button onclick="play('VTS_01_1 00_16_00-.mp4')">4:VTS_01_1 00_16_00-.mp4</button> 
+<button onclick="play('VTS_01_2 00_00_00-00_08_10.mp4')">5:VTS_01_2 00_00_00-00_08_10.mp4</button> 
+<button onclick="play('VTS_01_2 00_08_00-00_16_10.mp4')">6:VTS_01_2 00_08_00-00_16_10.mp4</button> 
+<button onclick="play('VTS_01_2 00_16_00-.mp4')">7:VTS_01_2 00_16_00-.mp4</button> 
+<button onclick="play('VTS_01_3 00_00_00-00_08_10.mp4')">8:VTS_01_3 00_00_00-00_08_10.mp4</button> 
+<button onclick="play('VTS_01_3 00_08_00-00_16_10.mp4')">9:VTS_01_3 00_08_00-00_16_10.mp4</button> 
+<button onclick="play('VTS_01_3 00_16_00-.mp4')">10:VTS_01_3 00_16_00-.mp4</button> 
+<br> 
+<button onclick="play('VTS_01_4 00_00_00-00_08_10.mp4')">11:VTS_01_4 00_00_00-00_08_10.mp4</button> 
+<button onclick="play('VTS_01_4 00_08_00-00_16_10.mp4')">12:VTS_01_4 00_08_00-00_16_10.mp4</button> 
+<button onclick="play('VTS_01_4 00_16_00-.mp4')">13:VTS_01_4 00_16_00-.mp4</button> 
+<button onclick="play('VTS_01_5.mp4')">14:VTS_01_5.mp4</button> 
+<br> 
+<video id="myVideo" width="720" height="480" controls> 
+ <source src="0.mp4" type="video/mp4">  
+Your browser does not support HTML5 video. 
+</video>  
+<script>  
+var vid = document.getElementById("myVideo"); 
+function play(i) {
+    vid.src=i; 
+    vid.load();
+    vid.play(); 
+}
+function getCurTime() {  
+   document.getElementById("DivCurTime").innerHTML= vid.currentTime; 
+}   
+function setCurTime(t) { 
+   vid.currentTime=t;  
+   getCurTime();
+}  
+function moveMS(ms) { 
+  vid.currentTime+=ms;
+  getCurTime();  
+}   
+</script> 
+</body> 
